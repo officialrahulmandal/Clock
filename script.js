@@ -3,15 +3,16 @@ const MINUTEHAND = document.querySelector("#minute");
 const SECONDHAND = document.querySelector("#second");
 
 
-let hrPosition = 20;
-let minPosition = 130;
-let secPosition = 267;
 
 var date = new Date()
 let hr =  date.getHours();
 let min = date.getMinutes();
 let sec = date.getSeconds();
 console.log("hour "+ hr + " minutes "+ min + " seconds  "+ sec );
+
+let hrPosition = (hr*360/12)+(min*(360/60)/12);
+let minPosition = (min*360/60)+(sec*(360/60)/60);
+let secPosition = sec*360/60;
 
 
 HOURHAND.style.transform = "rotate(" + hrPosition + "deg)";
